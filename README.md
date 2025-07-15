@@ -14,11 +14,13 @@ Un portfolio moderno y responsivo desarrollado con Vue.js 3 y Vite, diseñado pa
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Vue.js 3** - Framework principal
-- **Vite** - Build tool y desarrollo
+- **Vue.js 3.4.0** - Framework principal
+- **Vite 5.4.0** - Build tool y desarrollo
 - **CSS3** - Estilos y animaciones
 - **JavaScript ES6+** - Lógica de la aplicación
 - **HTML5** - Estructura semántica
+- **GitHub Actions** - CI/CD automático
+- **GitHub Pages** - Hosting
 
 ## 📦 Instalación
 
@@ -38,7 +40,9 @@ npm install
 npm run dev
 ```
 
-4. Abre tu navegador en `http://localhost:5173`
+4. Abre tu navegador en `http://localhost:5176/mi-portfolio/`
+
+> **Nota**: El puerto puede variar (5173, 5174, 5175, 5176...) dependiendo de cuáles estén disponibles.
 
 ## 🏗️ Scripts Disponibles
 
@@ -58,7 +62,28 @@ src/
 │   └── Contact.vue  # Formulario de contacto
 ├── App.vue          # Componente principal
 └── main.js          # Punto de entrada
+
+public/
+├── favicon.ico      # Ícono del sitio
+└── 404.html         # Página de error para SPA routing
+
+.github/
+└── workflows/
+    └── deploy.yml   # Configuración de GitHub Actions
 ```
+
+## ⚙️ Configuración
+
+### Vite Config
+- **Base path**: `/mi-portfolio/` para GitHub Pages
+- **Build output**: `dist/` 
+- **Development server**: Puerto automático (5173+)
+
+### GitHub Actions
+- **Trigger**: Push a rama `main`
+- **Node version**: 18
+- **Build command**: `npm run build`
+- **Deploy**: Automático a GitHub Pages
 
 ## 🎨 Secciones
 
@@ -88,12 +113,20 @@ Modifica el array `projects` en `src/components/Projects.vue`
 
 ## 🚀 Despliegue
 
-### GitHub Pages (Automático)
+### GitHub Pages (Automático) ✅
 El proyecto está configurado para desplegarse automáticamente en GitHub Pages usando GitHub Actions.
 
 🌐 **Sitio en vivo**: https://erizhi1.github.io/mi-portfolio/
 
-Cada push a la rama `main` actualiza automáticamente el sitio.
+**Configuración automática:**
+- Cada push a la rama `main` activa el workflow de GitHub Actions
+- El proyecto se construye automáticamente con `npm run build`
+- Los archivos se despliegan en GitHub Pages
+- Tiempo de despliegue: ~2-3 minutos
+
+**Requisitos:**
+- GitHub Pages habilitado con source "GitHub Actions"
+- Workflow configurado en `.github/workflows/deploy.yml`
 
 ### Netlify/Vercel (Manual)
 1. Construye el proyecto: `npm run build`
