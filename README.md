@@ -24,7 +24,7 @@ Un portfolio moderno y responsivo desarrollado con Vue.js 3 y Vite, diseñado pa
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/mi-portfolio.git
+git clone https://github.com/erizhi1/mi-portfolio.git
 cd mi-portfolio
 ```
 
@@ -88,14 +88,57 @@ Modifica el array `projects` en `src/components/Projects.vue`
 
 ## 🚀 Despliegue
 
-### Netlify/Vercel
+### GitHub Pages (Automático)
+El proyecto está configurado para desplegarse automáticamente en GitHub Pages usando GitHub Actions.
+
+🌐 **Sitio en vivo**: https://erizhi1.github.io/mi-portfolio/
+
+Cada push a la rama `main` actualiza automáticamente el sitio.
+
+### Netlify/Vercel (Manual)
 1. Construye el proyecto: `npm run build`
 2. Sube la carpeta `dist` al servicio de hosting
+
+## 🔧 Desarrollo Local
+
+Para trabajar en el proyecto localmente:
+
+```bash
+# Clonar e instalar
+git clone https://github.com/erizhi1/mi-portfolio.git
+cd mi-portfolio
+npm install
+
+# Desarrollo
+npm run dev
+
+# Construir para producción
+npm run build
+
+# Previsualizar build
+npm run preview
+```
 
 ## 📧 Contacto
 
 Personaliza tu información de contacto en los componentes correspondientes.
 
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
 ---
 
 ⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!
+
+**Desarrollado con ❤️ por [erizhi1](https://github.com/erizhi1)**
