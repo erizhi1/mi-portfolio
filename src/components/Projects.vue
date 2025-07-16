@@ -6,20 +6,9 @@
         Algunos de los proyectos en los que he trabajado recientemente
       </p>
       
-      <div class="projects-filter">
-        <button 
-          v-for="category in categories" 
-          :key="category"
-          :class="['filter-btn', { active: activeFilter === category }]"
-          @click="filterProjects(category)"
-        >
-          {{ category }}
-        </button>
-      </div>
-      
       <div class="projects-grid">
         <div 
-          v-for="project in filteredProjects" 
+          v-for="project in projects" 
           :key="project.id"
           class="project-card"
           @click="openProject(project)"
@@ -67,42 +56,38 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-
-const activeFilter = ref('Todos')
-
-const categories = ['Todos', 'Web Apps', 'E-commerce', 'Landing Pages', 'APIs']
+import { ref } from 'vue'
 
 const projects = ref([
   {
     id: 1,
-    title: 'E-commerce Moderno',
-    description: 'Plataforma completa de comercio electrónico con carrito de compras, pagos y gestión de inventario.',
+    title: 'Sistema de Gestión de Inventarios',
+    description: 'Sistema backend completo para gestionar entradas y salidas de stock, con corrección automática de saldos negativos y API RESTful.',
     image: 'https://picsum.photos/400/300?random=1',
-    technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Stripe'],
-    category: 'E-commerce',
-    demo: 'https://demo-ecommerce.com',
-    github: 'https://github.com/usuario/ecommerce'
+    technologies: ['PHP', 'MySQL', 'jQuery', 'Bootstrap'],
+    category: 'Web Apps',
+    demo: 'https://demo-inventarios.com',
+    github: 'https://github.com/erizhi1/sistema-inventarios'
   },
   {
     id: 2,
-    title: 'Dashboard Analytics',
-    description: 'Panel de control con métricas en tiempo real, gráficos interactivos y reportes automatizados.',
+    title: 'API RESTful de Productos',
+    description: 'API escalable para gestionar catálogo de productos con autenticación JWT, documentación Swagger y tests automatizados.',
     image: 'https://picsum.photos/400/300?random=2',
-    technologies: ['React', 'D3.js', 'Express', 'PostgreSQL'],
-    category: 'Web Apps',
-    demo: 'https://demo-dashboard.com',
-    github: 'https://github.com/usuario/dashboard'
+    technologies: ['Laravel', 'MySQL', 'JWT', 'Swagger'],
+    category: 'APIs',
+    demo: 'https://api-productos.com/docs',
+    github: 'https://github.com/erizhi1/api-productos'
   },
   {
     id: 3,
-    title: 'Landing Page Creativa',
-    description: 'Sitio web promocional con animaciones CSS, diseño responsivo y optimización SEO.',
+    title: 'Dashboard de Análisis de Datos',
+    description: 'Panel interactivo para visualizar métricas clave con integración Power BI y consultas SQL optimizadas para grandes volúmenes.',
     image: 'https://picsum.photos/400/300?random=3',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'GSAP'],
-    category: 'Landing Pages',
-    demo: 'https://demo-landing.com',
-    github: 'https://github.com/usuario/landing'
+    technologies: ['PHP', 'Chart.js', 'PostgreSQL', 'Power BI'],
+    category: 'Web Apps',
+    demo: 'https://dashboard-analytics.com',
+    github: 'https://github.com/erizhi1/dashboard-analytics'
   },
   {
     id: 4,
@@ -136,17 +121,6 @@ const projects = ref([
   }
 ])
 
-const filteredProjects = computed(() => {
-  if (activeFilter.value === 'Todos') {
-    return projects.value
-  }
-  return projects.value.filter(project => project.category === activeFilter.value)
-})
-
-const filterProjects = (category) => {
-  activeFilter.value = category
-}
-
 const openProject = (project) => {
   // Aquí podrías abrir un modal con más detalles del proyecto
   console.log('Abriendo proyecto:', project.title)
@@ -164,7 +138,8 @@ const openCode = (url) => {
 <style scoped>
 .projects {
   padding: 6rem 0;
-  background: white;
+  background: linear-gradient(135deg, #16213e 0%, #0f0f23 100%);
+  color: white;
 }
 
 .container {

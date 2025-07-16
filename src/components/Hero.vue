@@ -1,15 +1,16 @@
 <template>
   <section class="hero">
+    <ThreeBackground />
     <div class="hero-container">
       <div class="hero-content">
         <h1 class="hero-title">
-          Hola, soy <span class="highlight">Tu Nombre</span>
+          Hola, soy <span class="highlight">Erich</span>
         </h1>
         <p class="hero-subtitle">
-          Desarrollador Full Stack especializado en Vue.js y tecnologías modernas
+          Ingeniero de Software especializado en desarrollo backend y gestión de bases de datos
         </p>
         <p class="hero-description">
-          Creo experiencias web únicas y funcionales que conectan personas con tecnología
+          Experto en PHP, Laravel, bases de datos y análisis de datos con experiencia en sectores forestal, facturación electrónica y servicio público
         </p>
         <div class="hero-buttons">
           <button class="btn btn-primary" @click="scrollToSection('projects')">
@@ -22,7 +23,7 @@
       </div>
       <div class="hero-image">
         <div class="avatar">
-          <img src="../assets/logo.svg" alt="Avatar" class="avatar-img" />
+          <CodeCube />
         </div>
       </div>
     </div>
@@ -30,6 +31,9 @@
 </template>
 
 <script setup>
+import ThreeBackground from './ThreeBackground.vue'
+import CodeCube from './CodeCube.vue'
+
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -44,8 +48,10 @@ const scrollToSection = (sectionId) => {
   display: flex;
   align-items: center;
   padding: 2rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
@@ -56,6 +62,8 @@ const scrollToSection = (sectionId) => {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -67,24 +75,28 @@ const scrollToSection = (sectionId) => {
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .highlight {
   color: #ffd700;
   position: relative;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-description {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  opacity: 0.8;
+  opacity: 0.9;
   line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-buttons {
@@ -136,23 +148,10 @@ const scrollToSection = (sectionId) => {
 }
 
 .avatar {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, #ffd700, #ffed4e);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   position: relative;
-  overflow: hidden;
-}
-
-.avatar-img {
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
-  border-radius: 50%;
 }
 
 @keyframes slideInLeft {
@@ -190,11 +189,6 @@ const scrollToSection = (sectionId) => {
   
   .hero-subtitle {
     font-size: 1.2rem;
-  }
-  
-  .avatar {
-    width: 200px;
-    height: 200px;
   }
   
   .hero-buttons {

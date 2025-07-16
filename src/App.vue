@@ -11,7 +11,7 @@ import Contact from './components/Contact.vue'
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <span>Mi Portfolio</span>
+          <span>Erich</span>
         </div>
         <ul class="nav-menu">
           <li><a href="#hero" @click="scrollToSection('hero')">Inicio</a></li>
